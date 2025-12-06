@@ -82,14 +82,21 @@
 
     .modal-overlay {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.7);
+      display: flex; align-items: center; justify-content: center;
       opacity: 0; visibility: hidden; transition: all 0.6s; z-index: 1000;
     }
     .modal-overlay.show { opacity: 1; visibility: visible; }
     .modal-content {
-      background: rgba(255,255,255,0.15); backdrop-filter: blur(12px);
-      padding: 50px 30px; border-radius: 24px; text-align: center; max-width: 90%;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4); transform: scale(0.8); transition: transform 0.6s;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(12px);
+      padding: 50px 30px;
+      border-radius: 24px;
+      text-align: center;
+      max-width: 90%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      transform: scale(0.8);
+      transition: transform 0.6s;
     }
     .modal-overlay.show .modal-content { transform: scale(1); }
 
@@ -102,11 +109,16 @@
     .modal-btn:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
 
     #gretaCoffeeScreen {
-      min-height: 100vh; display: none; flex-direction: column; align-items: center;
-      justify-content: center; padding: 30px 50px 100px; /* Extra bottom padding for footer */
+      min-height: 100vh;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 50px 100px;
       text-align: center;
       background: linear-gradient(135deg, #6e1b8a 0%, #ee5a24 100%);
-      position: relative; z-index: 2;
+      position: relative;
+      z-index: 2;
     }
     #gretaCoffeeScreen img {
       max-width: 380px; width: 90%; margin: 20px auto; border-radius: 24px;
@@ -119,51 +131,27 @@
     label { display: block; margin-bottom: 10px; font-weight: 600; font-size: 1.2rem; }
     input {
       width: 100%; padding: 18px 22px; border: none; border-radius: 18px;
-      background: rgba(255,255,255,0.25); color: white; font-size: 1.15rem; backdrop-filter: blur(8px);
+      background: rgba(255,255,255,0.25); color: white; font-size: 1.15rem;
+      backdrop-filter: blur(8px);
     }
     input::placeholder { color: rgba(255,255,255,0.75); }
     input:focus { outline: none; background: rgba(255,255,255,0.35); }
-    input:disabled {
-      background: rgba(255,255,255,0.15);
-      color: #ccc;
-      cursor: not-allowed;
-      opacity: 0.7;
-    }
+    input:disabled { background: rgba(255,255,255,0.15); color: #ccc; cursor: not-allowed; opacity: 0.7; }
 
     .button-group {
-      display: flex;
-      gap: 15px;
-      margin-top: 30px;
-      max-width: 420px;
-      width: 100%;
+      display: flex; gap: 15px; margin-top: 30px;
+      max-width: 420px; width: 100%;
     }
     .submit-btn, .exit-btn {
-      flex: 1;
-      padding: 18px 30px;
-      font-size: 1.3rem;
-      font-weight: bold;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.3s;
+      flex: 1; padding: 18px 30px; font-size: 1.3rem; font-weight: bold;
+      border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s;
       box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     }
-    .submit-btn {
-      background: #feca57; color: #333;
-    }
-    .exit-btn {
-      background: rgba(255,255,255,0.2);
-      color: white;
-      border: 2px solid rgba(255,255,255,0.4);
-    }
+    .submit-btn { background: #feca57; color: #333; }
+    .exit-btn { background: rgba(255,255,255,0.2); color: white; border: 2px solid rgba(255,255,255,0.4); }
     .submit-btn:disabled { background: #444 !important; cursor: not-allowed; opacity: 0.8; }
-    .submit-btn:hover:not(:disabled) {
-      transform: translateY(-5px); background: #ff9f43; box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-    }
-    .exit-btn:hover {
-      background: rgba(255,255,255,0.3);
-      transform: translateY(-5px);
-    }
+    .submit-btn:hover:not(:disabled) { transform: translateY(-5px); background: #ff9f43; box-shadow: 0 15px 40px rgba(0,0,0,0.5); }
+    .exit-btn:hover { background: rgba(255,255,255,0.3); transform: translateY(-5px); }
 
     .live-counter {
       background: rgba(0,0,0,0.35); padding: 25px; border-radius: 24px; margin: 30px auto;
@@ -184,10 +172,7 @@
       transform: translateY(20px);
       transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-    .wallet-status.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .wallet-status.show { opacity: 1; transform: translateY(0); }
     .wallet-status .address {
       font-family: 'Courier New', monospace;
       font-size: 1.4rem;
@@ -206,23 +191,7 @@
       margin-top: 10px;
     }
 
-    /* DICE NUMBER OVERLAY */
-    .dice-number {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 9rem;
-      font-weight: bold;
-      color: #222;
-      text-shadow: 0 0 30px rgba(255,255,255,0.8);
-      z-index: 10;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.6s;
-    }
-    .dice-number.show { opacity: 1; }
-
-    /* EPIC 3D DICE */
+    /* REALISTIC 3D DICE */
     .dice-container {
       perspective: 1200px;
       width: clamp(240px, 70vw, 340px);
@@ -232,34 +201,56 @@
       position: relative;
     }
     .dice {
-      width: 100%; height: 100%; position: relative;
+      width: 100%; height: 100%;
+      position: relative;
       transform-style: preserve-3d;
       transition: transform 4s cubic-bezier(0.2, 0.85, 0.3, 1);
     }
     .face {
-      position: absolute; width: 100%; height: 100%;
+      position: absolute;
+      width: 100%; height: 100%;
       background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
-      border: 10px solid #222; border-radius: 24px;
-      display: flex; align-items: center; justify-content: center;
+      border: 10px solid #222;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       backface-visibility: hidden;
       box-shadow: inset 0 0 80px rgba(0,0,0,0.4), 0 30px 60px rgba(0,0,0,0.7);
     }
-    .dot { width: 28%; height: 28%; background: #222; border-radius: 50%; box-shadow: inset 0 8px 16px rgba(0,0,0,0.6); }
-    .dots { display: grid; width: 80%; height: 80%; gap: 12%; padding: 10%; }
-    .one   .dots { grid-template: "a . ." ". b ." ". . c"; }
-    .two   .dots { grid-template: "a . ." ". . ." ". . b"; }
-    .three .dots { grid-template: "a . ." ". b ." ". . c"; }
-    .four  .dots { grid-template: "a b" "c d"; }
-    .five  .dots { grid-template: "a b" ". e ." "c d"; }
-    .six   .dots { grid-template: "a b" "c d" "e f"; }
-    .front  { transform: translateZ(170px); }
-    .back   { transform: rotateY(180deg) translateZ(170px); }
-    .right  { transform: rotateY(90deg) translateZ(170px); }
-    .left   { transform: rotateY(-90deg) translateZ(170px); }
-    .top    { transform: rotateX(90deg) translateZ(170px); }
-    .bottom { transform: rotateX(-90deg) translateZ(170px); }
+    .dot {
+      width: 28%; height: 28%;
+      background: #222;
+      border-radius: 50%;
+      box-shadow: inset 0 8px 16px rgba(0,0,0,0.6);
+    }
+    .dots {
+      display: grid;
+      width: 80%; height: 80%;
+      gap: 12%;
+      padding: 10%;
+    }
 
-    /* POWERED BY SNAPPQUEST - NATURAL FLOW FOOTER */
+    .one   .dots { grid-template-areas: ". . ." ". a ." ". . ."; }
+    .two   .dots { grid-template-areas: "a . ." ". . ." ". . b"; }
+    .three .dots { grid-template-areas: "a . ." ". b ." ". . c"; }
+    .four  .dots { grid-template-areas: "a b" "c d"; }
+    .five  .dots { grid-template-areas: "a b" ". e ." "c d"; }
+    .six   .dots { grid-template-areas: "a b" "c d" "e f"; }
+
+    .front  { transform: translateZ(170px); }      /* 1 */
+    .back   { transform: rotateY(180deg) translateZ(170px); } /* 6 */
+    .right  { transform: rotateY(90deg) translateZ(170px); }   /* 4 */
+    .left   { transform: rotateY(-90deg) translateZ(170px); }  /* 3 */
+    .top    { transform: rotateX(90deg) translateZ(170px); }   /* 2 */
+    .bottom { transform: rotateX(-90deg) translateZ(170px); }  /* 5 */
+
+    /* Golden glow when dice lands */
+    .dice.landed .face {
+      transition: box-shadow 0.8s ease 0.8s;
+      box-shadow: inset 0 0 80px rgba(0,0,0,0.4), 0 30px 60px rgba(0,0,0,0.7), 0 0 40px 12px #feca57;
+    }
+
     .powered-by {
       margin-top: 60px;
       padding: 20px;
@@ -269,25 +260,16 @@
       opacity: 0.9;
       transition: all 0.3s ease;
     }
-    .powered-by:hover {
-      opacity: 1;
-      color: #fff;
-    }
-    .powered-by a {
-      color: #feca57;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 0 6px;
-    }
-    .powered-by a:hover {
-      text-decoration: underline;
-    }
+    .powered-by:hover { opacity: 1; color: #fff; }
+    .powered-by a { color: #feca57; text-decoration: none; font-weight: bold; }
+    .powered-by a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
   <div class="sparkles" id="sparkles"></div>
 
+  <!-- WIN / LOSE ALERT -->
   <div class="custom-alert-overlay" id="customAlert">
     <div class="custom-alert">
       <i class="fas fa-trophy"></i>
@@ -296,6 +278,7 @@
     </div>
   </div>
 
+  <!-- WELCOME MODAL -->
   <div class="modal-overlay show" id="welcomeModal">
     <div class="modal-content">
       <h1>Savor the sweet coffee brews</h1>
@@ -307,6 +290,7 @@
     </div>
   </div>
 
+  <!-- MAIN GAME SCREEN -->
   <div id="gretaCoffeeScreen">
     <img src="images/Greta-transparent.png" alt="Here's your coffee!">
     <h1>Here's your coffee!</h1>
@@ -317,7 +301,7 @@
       <div class="status" id="statusText">Loading players...</div>
     </div>
 
-    <!-- CONNECTED STATE -->
+    <!-- CONNECTED WALLET INFO -->
     <div id="connectedStatus" class="wallet-status">
       <div>Connected</div>
       <div class="address" id="shortAddress"></div>
@@ -337,31 +321,30 @@
       </div>
     </div>
 
-    <!-- DICE WITH BIG NUMBER OVERLAY -->
+    <!-- 3D DICE -->
     <div class="dice-container" id="diceContainer">
       <div class="dice" id="dice">
-        <div class="face front"><div class="dots one"><div class="dot" style="grid-area: b;"></div></div></div>
-        <div class="face back"><div class="dots two"><div class="dot" style="grid-area: a;"></div><div class="dot" style="grid-area: b;"></div></div></div>
-        <div class="face right"><div class="dots three"><div class="dot" style="grid-area: a;"></div><div class="dot" style="grid-area: b;"></div><div class="dot" style="grid-area: c;"></div></div></div>
-        <div class="face left"><div class="dots four"><div class="dot" style="grid-area: a;"></div><div class="dot" style="grid-area: b;"></div><div class="dot" style="grid-area: c;"></div><div class="dot" style="grid-area: d;"></div></div></div>
-        <div class="face top"><div class="dots five"><div class="dot" style="grid-area: a;"></div><div class="dot" style="grid-area: b;"></div><div class="dot" style="grid-area: c;"></div><div class="dot" style="grid-area: d;"></div><div class="dot" style="grid-area: e;"></div></div></div>
-        <div class="face bottom"><div class="dots six"><div class="dot" style="grid-area: a;"></div><div class="dot" style="grid-area: b;"></div><div class="dot" style="grid-area: c;"></div><div class="dot" style="grid-area: d;"></div><div class="dot" style="grid-area: e;"></div><div class="dot" style="grid-area: f;"></div></div></div>
+        <div class="face front one"><div class="dots"><div class="dot" style="grid-area:a"></div></div></div>
+        <div class="face top two"><div class="dots"><div class="dot" style="grid-area:a"></div><div class="dot" style="grid-area:b"></div></div></div>
+        <div class="face left three"><div class="dots"><div class="dot" style="grid-area:a"></div><div class="dot" style="grid-area:b"></div><div class="dot" style="grid-area:c"></div></div></div>
+        <div class="face right four"><div class="dots"><div class="dot" style="grid-area:a"></div><div class="dot" style="grid-area:b"></div><div class="dot" style="grid-area:c"></div><div class="dot" style="grid-area:d"></div></div></div>
+        <div class="face bottom five"><div class="dots"><div class="dot" style="grid-area:a"></div><div class="dot" style="grid-area:b"></div><div class="dot" style="grid-area:c"></div><div class="dot" style="grid-area:d"></div><div class="dot" style="grid-area:e"></div></div></div>
+        <div class="face back six"><div class="dots"><div class="dot" style="grid-area:a"></div><div class="dot" style="grid-area:b"></div><div class="dot" style="grid-area:c"></div><div class="dot" style="grid-area:d"></div><div class="dot" style="grid-area:e"></div><div class="dot" style="grid-area:f"></div></div></div>
       </div>
-      <div class="dice-number" id="diceNumber"></div>
     </div>
 
-    <!-- BUTTON GROUP -->
+    <!-- BUTTONS -->
     <div class="button-group">
       <button class="submit-btn" id="submitDiceRoll">Submit & Roll Dice</button>
       <button class="exit-btn" id="exitGameBtn">Exit Game</button>
     </div>
 
-    <!-- POWERED BY SNAPPQUEST - NATURAL FLOW FOOTER -->
     <div class="powered-by">
       Powered by <a href="https://snappquest.niti.com.ng/" target="_blank">SnappQuest</a>
     </div>
   </div>
 
+  <!-- GOOGLE FORM (hidden) -->
   <form id="googleForm" action="https://docs.google.com/forms/d/e/1FAIpQLSeScqtPJIoOIio2zw_Jb951MaXaLXfoOpvqkIeYpRMRAyqb0g/formResponse" method="POST" target="hidden_iframe" style="display:none;">
     <input type="text" name="entry.647719580" id="entry_trackcode">
     <input type="text" name="entry.1396080383" id="entry_telegram">
@@ -372,7 +355,7 @@
   <iframe name="hidden_iframe" style="display:none;"></iframe>
 
   <script>
-    // Sparkles
+    // Sparkles animation
     for(let i = 0; i < 40; i++) {
       const s = document.createElement('div');
       s.className = 'sparkle';
@@ -391,7 +374,6 @@
     const exitBtn = document.getElementById('exitGameBtn');
     const diceContainer = document.getElementById('diceContainer');
     const dice = document.getElementById('dice');
-    const diceNumber = document.getElementById('diceNumber');
     const liveCounter = document.getElementById('liveCounter');
     const statusText = document.getElementById('statusText');
     const inputSection = document.getElementById('inputSection');
@@ -411,7 +393,6 @@
     function connectWallet(tg, poly) {
       localStorage.setItem('greta_telegram', tg);
       localStorage.setItem('greta_polygon', poly);
-
       shortAddress.textContent = truncateAddress(poly);
       shortTelegram.textContent = tg;
       connectedStatus.classList.add('show');
@@ -420,10 +401,8 @@
         inputSection.style.display = 'none';
         connectedStatus.style.display = 'block';
       }, 400);
-
       infoText.textContent = "You're connected! Ready to roll.";
       submitBtn.textContent = "Roll Dice Now";
-
       telegramInput.value = tg;
       polygonInput.value = poly;
       telegramInput.disabled = true;
@@ -433,10 +412,7 @@
     function checkConnection() {
       const savedTelegram = localStorage.getItem('greta_telegram');
       const savedPolygon = localStorage.getItem('greta_polygon');
-
-      if (savedTelegram && savedPolygon) {
-        connectWallet(savedTelegram, savedPolygon);
-      }
+      if (savedTelegram && savedPolygon) connectWallet(savedTelegram, savedPolygon);
     }
 
     document.getElementById('disconnectBtn').onclick = () => {
@@ -445,24 +421,25 @@
       location.href = "index.html";
     };
 
-    exitBtn.onclick = () => {
-      location.href = "index.html";
-    };
+    exitBtn.onclick = () => location.href = "index.html";
 
+    // Correct rotation so the chosen number ends up perfectly in front
     const diceRotations = {
-      1: 'rotateX(0deg) rotateY(0deg)',
-      2: 'rotateX(-90deg) rotateY(0deg)',
-      3: 'rotateX(0deg) rotateY(-90deg)',
-      4: 'rotateX(0deg) rotateY(90deg)',
-      5: 'rotateX(90deg) rotateY(0deg)',
-      6: 'rotateX(180deg) rotateY(0deg)'
+      1: 'rotateX(0deg) rotateY(0deg)',       // 1
+      2: 'rotateX(-90deg) rotateY(0deg)',     // 2 on top
+      3: 'rotateY(90deg) rotateX(0deg)',      // 3
+      4: 'rotateY(-90deg) rotateX(0deg)',     // 4
+      5: 'rotateX(90deg) rotateY(0deg)',      // 5 on bottom → rotate to front
+      6: 'rotateY(180deg) rotateX(0deg)'      // 6
     };
 
     function showAlert(msg) {
       alertMessage.innerHTML = msg;
       alertOverlay.classList.add('show');
     }
-    function closeCustomAlert() { alertOverlay.classList.remove('show'); }
+    function closeCustomAlert() {
+      alertOverlay.classList.remove('show');
+    }
 
     function generateTrackCode() {
       const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -506,8 +483,7 @@
 
     async function rollDice(finalNumber) {
       diceContainer.style.display = 'block';
-      diceNumber.textContent = "";
-      diceNumber.classList.remove('show');
+      dice.classList.remove('landed');
       submitBtn.textContent = "ROLLING THE DICE...";
       submitBtn.disabled = true;
 
@@ -518,13 +494,9 @@
       dice.style.transform = `rotateX(${randX}deg) rotateY(${randY}deg)`;
 
       setTimeout(() => {
-        dice.style.transition = 'transform 1.4s cubic-bezier(0.2, 0.9, 0.3, 1)';
+        dice.style.transition = 'transform 1.6s cubic-bezier(0.2, 0.9, 0.3, 1)';
         dice.style.transform = diceRotations[finalNumber];
-
-        setTimeout(() => {
-          diceNumber.textContent = finalNumber;
-          diceNumber.classList.add('show');
-        }, 800);
+        setTimeout(() => dice.classList.add('landed'), 1600);
       }, 4200);
     }
 
@@ -536,7 +508,10 @@
 
       document.getElementById('buyCoffeeBtn').onclick = async () => {
         const s = await getGameState();
-        if (s.totalEntries >= 6) { showAlert("Game is full!"); return; }
+        if (s.totalEntries >= 6) {
+          showAlert("Game is full!");
+          return;
+        }
         document.getElementById('welcomeModal').classList.remove('show');
         setTimeout(() => {
           document.getElementById('welcomeModal').style.display = 'none';
@@ -597,12 +572,12 @@
 
           setTimeout(() => {
             diceContainer.style.display = 'none';
-            diceNumber.classList.remove('show');
+            dice.classList.remove('landed');
             updateUI();
             isSubmitting = false;
             submitBtn.textContent = "Roll Dice Now";
           }, 4000);
-        }, 5600);
+        }, 6000);
       };
     });
   </script>
