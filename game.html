@@ -103,7 +103,8 @@
 
     #gretaCoffeeScreen {
       min-height: 100vh; display: none; flex-direction: column; align-items: center;
-      justify-content: center; padding: 30px; text-align: center;
+      justify-content: center; padding: 30px 50px 100px; /* Extra bottom padding for footer */
+      text-align: center;
       background: linear-gradient(135deg, #6e1b8a 0%, #ee5a24 100%);
       position: relative; z-index: 2;
     }
@@ -257,6 +258,30 @@
     .left   { transform: rotateY(-90deg) translateZ(170px); }
     .top    { transform: rotateX(90deg) translateZ(170px); }
     .bottom { transform: rotateX(-90deg) translateZ(170px); }
+
+    /* POWERED BY SNAPPQUEST - NATURAL FLOW FOOTER */
+    .powered-by {
+      margin-top: 60px;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #ccc;
+      opacity: 0.9;
+      transition: all 0.3s ease;
+    }
+    .powered-by:hover {
+      opacity: 1;
+      color: #fff;
+    }
+    .powered-by a {
+      color: #feca57;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 6px;
+    }
+    .powered-by a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -292,7 +317,7 @@
       <div class="status" id="statusText">Loading players...</div>
     </div>
 
-    <!-- CONNECTED STATE (appears instantly) -->
+    <!-- CONNECTED STATE -->
     <div id="connectedStatus" class="wallet-status">
       <div>Connected</div>
       <div class="address" id="shortAddress"></div>
@@ -300,7 +325,7 @@
       <button class="disconnect-btn" id="disconnectBtn">Disconnect Wallet</button>
     </div>
 
-    <!-- INPUTS (hidden when connected) -->
+    <!-- INPUTS -->
     <div id="inputSection">
       <div class="input-group">
         <label for="telegramInput">Telegram Handle</label>
@@ -325,10 +350,15 @@
       <div class="dice-number" id="diceNumber"></div>
     </div>
 
-    <!-- BUTTON GROUP: Roll + Exit -->
+    <!-- BUTTON GROUP -->
     <div class="button-group">
       <button class="submit-btn" id="submitDiceRoll">Submit & Roll Dice</button>
       <button class="exit-btn" id="exitGameBtn">Exit Game</button>
+    </div>
+
+    <!-- POWERED BY SNAPPQUEST - NATURAL FLOW FOOTER -->
+    <div class="powered-by">
+      Powered by <a href="https://snappquest.niti.com.ng/" target="_blank">SnappQuest</a>
     </div>
   </div>
 
@@ -378,7 +408,6 @@
       return `${addr.slice(0, 6)}...${addr.slice(-4)}`;
     }
 
-    // REAL-TIME DOM UPDATE ON CONNECT
     function connectWallet(tg, poly) {
       localStorage.setItem('greta_telegram', tg);
       localStorage.setItem('greta_polygon', poly);
@@ -395,7 +424,6 @@
       infoText.textContent = "You're connected! Ready to roll.";
       submitBtn.textContent = "Roll Dice Now";
 
-      // DISABLE INPUTS
       telegramInput.value = tg;
       polygonInput.value = poly;
       telegramInput.disabled = true;
@@ -411,14 +439,12 @@
       }
     }
 
-    // DISCONNECT → LOG OUT TO index.html
     document.getElementById('disconnectBtn').onclick = () => {
       localStorage.removeItem('greta_telegram');
       localStorage.removeItem('greta_polygon');
       location.href = "index.html";
     };
 
-    // EXIT GAME BUTTON
     exitBtn.onclick = () => {
       location.href = "index.html";
     };
@@ -538,7 +564,6 @@
           if (!tg.startsWith('@')) { showAlert("Telegram must start with @"); isSubmitting = false; return; }
           if (!poly.startsWith('0x') || poly.length < 30) { showAlert("Invalid Polygon address"); isSubmitting = false; return; }
 
-          // INSTANT DOM TRANSITION
           connectWallet(tg, poly);
         }
 
